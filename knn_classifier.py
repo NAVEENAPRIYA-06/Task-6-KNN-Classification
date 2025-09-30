@@ -54,3 +54,24 @@ if iris_df is not None:
     print("Features successfully scaled (Standardization).")
     global X_train_s, X_test_s, y_t, y_v
     X_train_s, X_test_s, y_t, y_v = X_train_scaled, X_test_scaled, y_train, y_test
+
+if 'X_train_s' in globals(): 
+
+    print("\n--- Training and Evaluation (K=5) ---")
+
+    k_value = 5
+    knn_classifier = KNeighborsClassifier(n_neighbors=k_value)
+
+    # Train the model
+    knn_classifier.fit(X_train_s, y_t)
+
+    # Make predictions on the test set
+    y_pred = knn_classifier.predict(X_test_s)
+
+    # Evaluate performance
+    accuracy = accuracy_score(y_v, y_pred)
+    cm = confusion_matrix(y_v, y_pred)
+
+    print(f"Model Accuracy (K={k_value}): {accuracy:.4f}")
+    print("\nConfusion Matrix:")
+    print(cm)
