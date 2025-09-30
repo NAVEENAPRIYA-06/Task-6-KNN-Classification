@@ -75,3 +75,35 @@ if 'X_train_s' in globals():
     print(f"Model Accuracy (K={k_value}): {accuracy:.4f}")
     print("\nConfusion Matrix:")
     print(cm)
+if 'X_train_s' in globals():
+
+    print("\n--- Finding Optimal K (Hyperparameter Tuning) ---")
+    MAX_K = int(np.sqrt(len(y_t))) + 5 # e.g., K up to 15
+    if MAX_K > 20: MAX_K = 20 # Cap it
+    k_range = range(1, MAX_K) 
+    error_rate = []
+
+    for i in k_range:
+        knn = KNeighborsClassifier(n_neighbors=i)
+        knn.fit(X_train_s, y_t)
+        pred_i = knn.predict(X_test_s)
+        # Calculate error rate: (Number of misclassified samples) / (Total samples)
+        error_rate.append(np.mean(pred_i != y_v))
+    optimal_k = k_range[np.argmin(error_rate)]
+    min_error = min(error_rate)
+
+    print(f"Minimum error rate: {min_error:.4f} at Optimal K = {optimal_k}")
+
+    # Plotting the error rate vs. K value
+    plt.figure(figsize=(10, 6))
+    plt.plot(k_range, error_rate, color='blue', linestyle='dashed', marker='o',
+             markerfacecolor='red', markersize=10)
+    plt.title('Error Rate vs. K Value')
+    plt.xlabel('K Value')
+    plt.ylabel('Mean Error')
+    plt.xticks(k_range)
+    plt.grid(True)
+    plt.show() 
+
+    global final_k
+    final_k = optimal_k
