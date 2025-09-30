@@ -17,14 +17,15 @@ Tools Used:
 
 Output Images:
 
-1.  **Error Rate vs. K Value Plot**
+**1. Error Rate vs. K Value Plot**
 
-  Visualizes the test error rate across different $K$ values to find the optimal hyperparameter
-    * **View Plot:** [Error Rate vs K-value Plot](K-value plot.png)
+Visualizes the test error rate across different $K$ values to find the optimal hyperparameter.
+* **View Plot:** [Error Rate vs K-value Plot](K-value plot.png)
 
-2.  **KNN Decision Boundary Plot**
-    * Illustrates the classification regions based on the final, optimal $K$ value (using two features)
-    * **View Plot:** [Decision Boundary Plot](Decision boundary plot.png)
+**2. KNN Decision Boundary Plot**
+
+Illustrates the classification regions based on the final, optimal $K$ value (using two features).
+* **View Plot:** [Decision Boundary Plot](Decision boundary plot.png)
 
 
 
