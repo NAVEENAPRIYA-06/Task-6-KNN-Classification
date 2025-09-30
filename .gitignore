@@ -1,0 +1,8 @@
+# Dependencies
+/node_modules
+/venv
+
+# IDEs and others
+.vscode/
+*.pyc
+__pycache__/
