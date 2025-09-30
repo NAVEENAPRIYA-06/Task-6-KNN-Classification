@@ -20,12 +20,12 @@ Output Images:
 **1. Error Rate vs. K Value Plot**
 
 Visualizes the test error rate across different $K$ values to find the optimal hyperparameter.
-* View Plot: **[Error Rate vs K-value Plot](K-value plot.png)**
+* View Plot: **[Error Rate vs K-value Plot](https://github.com/NAVEENAPRIYA-06/Task-6-KNN-Classification/blob/main/Screenshots/K-value%20plot.png)**
 
 **2. KNN Decision Boundary Plot**
 
 Illustrates the classification regions based on the final, optimal $K$ value (using two features).
-* View Plot: **[Decision Boundary Plot](Decision boundary plot.png)**
+* View Plot: **[Decision Boundary Plot](https://github.com/NAVEENAPRIYA-06/Task-6-KNN-Classification/blob/main/Screenshots/Decision%20boundary%20plot.png)**
 
 
 
