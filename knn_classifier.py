@@ -29,3 +29,28 @@ iris_df = load_and_explore_data(DATA_FILE)
 
 if iris_df is not None:
     print("\nData loaded successfully.")
+
+if iris_df is not None:
+    # Separate features (X) and target (y)
+    # Assuming the last column is the target (Species)
+    X = iris_df.iloc[:, :-1].values  
+    y = iris_df.iloc[:, -1].values
+
+    print("\n--- Feature Scaling and Data Splitting ---")
+
+    # 1. Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.3, random_state=42, stratify=y
+    )
+    print(f"Training set size: {X_train.shape[0]} samples")
+    print(f"Testing set size: {X_test.shape[0]} samples")
+
+    # 2. Feature Scaling
+    # Standardize the features (important for distance-based algorithms like KNN)
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    print("Features successfully scaled (Standardization).")
+    global X_train_s, X_test_s, y_t, y_v
+    X_train_s, X_test_s, y_t, y_v = X_train_scaled, X_test_scaled, y_train, y_test
